@@ -1,10 +1,13 @@
-$(document).on('ready', function() {
-    FB.api(
-    "/{1459878957645198}/feed",
-    function (response) {
-      if (response && !response.error) {
-        window.alert(response);
-      }
-    }
-    );
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+app.use(express.static(__dirname + '/public'));
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%d', host, port);
 });

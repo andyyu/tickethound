@@ -5,9 +5,14 @@ window.fbAsyncInit = function () {
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
     });
+    window.alert("test");
+    FB.api('/113124472034820', function(response) {
+    console.log(response);
+    });
     FB.api(
-    "/{1459878957645198}/feed",
+    "/1459878957645198/feed",
     function (response) {
+      window.alert("blah");
       if (response && !response.error) {
         window.alert(response);
       }
