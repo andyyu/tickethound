@@ -5,15 +5,11 @@ window.fbAsyncInit = function () {
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
     });
-    window.alert("test");
-    FB.api(
-    "/{1459878957645198}/feed",
-    function (response) {
-      if (response && !response.error) {
-        window.alert(response);
-      }
-    }
-    );
+    FB.api('/1459878957645198/feed?access_token=access_token', function(response) {
+        for(var i = 0; i < response.data.length; i++) {
+            $("#feed").append("\n" + response.data[i].message);
+        }
+    });
 };
 
 // Load the SDK Asynchronously
